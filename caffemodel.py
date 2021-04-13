@@ -30,7 +30,8 @@ if __name__ == "__main__":
     net = caffe.Net(model_file, weight_file, caffe.TEST)
 
     while True:
-        _, frame = cap.read()
+        for i in range(5):
+            _, frame = cap.read()
         frame = cv2.resize(frame, (640, 360))
 
         x = 120
@@ -48,7 +49,7 @@ if __name__ == "__main__":
 
             for obj_sm in y_test:
                 if (obj_sm[1] < 0): continue
-                if (obj_sm[2] > 0.4):
+                if (obj_sm[2] > 0.6):
                     # Detect safety vest
                     if (int(obj_sm[1])) == 2:
                         xmin_sm = int(obj_sm[3] * 224)
