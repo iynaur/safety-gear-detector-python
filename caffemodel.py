@@ -31,9 +31,9 @@ if __name__ == "__main__":
 
     while True:
         _, frame = cap.read()
-        frame = cv2.resize(frame, (640, 480))
+        frame = cv2.resize(frame, (640, 360))
 
-        x = 200
+        x = 120
         y = 200
         frame = frame[x:x+224, y:y+224, :]
         cv2.imshow('', frame)
